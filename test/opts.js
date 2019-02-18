@@ -16,8 +16,7 @@ function transformCodeWithOptions(input, options) {
   return code;
 }
 
-test('does not run when DEBUG_SHOW_SOURCE is not set', t => {
-  process.env.DEBUG_SHOW_SOURCE = undefined;
+test('runs when no option is set', t => {
   const code = `
 import debug from 'debug';
 const log = debug('a');
@@ -30,24 +29,7 @@ log('bye');
   t.snapshot(transformCode(code));
 });
 
-test('runs when DEBUG_SHOW_SOURCE is set to true', t => {
-  process.env.DEBUG_SHOW_SOURCE = 'true';
-
-  const code = `
-import debug from 'debug';
-const log = debug('a');
-
-log('hello');
-log('bye');
-
-`;
-
-  t.snapshot(transformCode(code));
-});
-
-test('runs when DEBUG_SHOW_SOURCE is not set, but option is set', t => {
-  process.env.DEBUG_SHOW_SOURCE = undefined;
-
+test('runs when showSource option is set to true', t => {
   const code = `
 import debug from 'debug';
 const log = debug('a');
@@ -60,9 +42,7 @@ log('bye');
   t.snapshot(transformCodeWithOptions(code, { showSource: true }));
 });
 
-test('does not run when DEBUG_SHOW_SOURCE is true, but option false', t => {
-  process.env.DEBUG_SHOW_SOURCE = 'true';
-
+test('does not run when showSource option is set to false', t => {
   const code = `
 import debug from 'debug';
 const log = debug('a');

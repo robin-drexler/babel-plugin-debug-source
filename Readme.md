@@ -36,7 +36,6 @@ npm install -D babel-plugin-debug-source
 ### Options
 
 `showSource`: whether the plugin should run and add the source to `debug` calls.
-If not specified, the plugin will run if `DEBUG_SHOW_SOURCE` is set to `"true"`.
 
 .babelrc
 
@@ -45,3 +44,19 @@ If not specified, the plugin will run if `DEBUG_SHOW_SOURCE` is set to `"true"`.
   plugins: [['debug-source', { showSource: true }]];
 }
 ```
+
+It probably makes sense to stay in the spirit of `debug` and only set `showSource` to true, when an environment variable is set.
+
+e.g.
+
+.babelrc
+
+```js
+{
+  plugins: [
+    ['debug-source', { showSource: process.env.DEBUG_SHOW_SOURCE === 'true' }]
+  ];
+}
+```
+
+This is not the default behavior, because babel (or bundlers utilizing babel) use heavy caching. Changes in environment variables usually do not cause a cache invalidation and the result will unexpectedly stay the same.

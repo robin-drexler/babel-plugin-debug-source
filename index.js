@@ -52,7 +52,7 @@ function handleIdentifier(path, t, state) {
 function shouldRun(state) {
   return typeof state.opts.showSource !== 'undefined'
     ? state.opts.showSource
-    : process.env.DEBUG_SHOW_SOURCE === 'true';
+    : true;
 }
 
 module.exports = function(babel) {

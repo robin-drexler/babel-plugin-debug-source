@@ -2,8 +2,6 @@ const test = require('ava');
 const plugin = require('../index');
 const { transform } = require('@babel/core');
 
-process.env.DEBUG_SHOW_SOURCE = 'true';
-
 function transformCode(input) {
   const { code } = transform(input, {
     plugins: [plugin]
