@@ -11,5 +11,9 @@
   },
   "version": "0.0.1",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robin-drexler/babel-plugin-debug-source"
+  }
 }
