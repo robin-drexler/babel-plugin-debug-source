@@ -49,11 +49,22 @@ function handleIdentifier(path, t, state) {
   });
 }
 
+function shouldRun(state) {
+  return typeof state.opts.showSource !== 'undefined'
+    ? state.opts.showSource
+    : process.env.DEBUG_SHOW_SOURCE === 'true';
+}
+
 module.exports = function(babel) {
   const { types: t } = babel;
+
   return {
     visitor: {
       ImportDefaultSpecifier(path, state) {
+        if (!shouldRun(state)) {
+          return;
+        }
+
         if (path.parentPath.get('source').node.value !== 'debug') {
           return;
         }
@@ -65,6 +76,10 @@ module.exports = function(babel) {
         );
       },
       CallExpression(path, state) {
+        if (!shouldRun(state)) {
+          return;
+        }
+
         if (path.node.callee.name !== 'require') {
           return;
         }

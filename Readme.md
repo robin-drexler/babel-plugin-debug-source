@@ -20,15 +20,28 @@ debug('hello', '/Users/your/project/path/source.js:2:0');
 ## Installation
 
 ```
-npm install babel-plugin-debug-source
+npm install -D babel-plugin-debug-source
 ```
 
-.babel.rc
+## Usage
+
+.babelrc
 
 ```js
 {
-    "plugins": [
-        "debug-source"
-    ]
+  plugins: ['debug-source'];
+}
+```
+
+### Options
+
+`showSource`: whether the plugin should run and add the source to `debug` calls.
+If not specified, the plugin will run if `DEBUG_SHOW_SOURCE` is set to `"true"`.
+
+.babelrc
+
+```js
+{
+  plugins: [['debug-source', { showSource: true }]];
 }
 ```
