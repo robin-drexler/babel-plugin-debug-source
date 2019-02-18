@@ -35,7 +35,7 @@ npm install -D babel-plugin-debug-source
 
 ### Options
 
-`showSource`: whether the plugin should run and add the source to `debug` calls.
+`showSource`: whether the plugin should run and add the source to `debug` calls. Defaults to `true`.
 
 .babelrc
 
