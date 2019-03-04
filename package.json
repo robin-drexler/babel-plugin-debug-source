@@ -1,10 +1,10 @@
 {
   "name": "babel-plugin-debug-source",
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.2.2",
-    "ava": "^1.2.1",
-    "debug": "^4.1.1"
+    "@babel/cli": "7.2.3",
+    "@babel/core": "7.2.2",
+    "ava": "1.2.1",
+    "debug": "4.1.1"
   },
   "scripts": {
     "test": "ava"
