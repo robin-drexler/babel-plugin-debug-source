@@ -4,7 +4,7 @@
     "@babel/cli": "7.10.5",
     "@babel/core": "7.10.5",
     "ava": "1.4.1",
-    "debug": "4.1.1"
+    "debug": "4.3.4"
   },
   "scripts": {
     "test": "ava"
