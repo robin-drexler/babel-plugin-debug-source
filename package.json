@@ -1,8 +1,8 @@
 {
   "name": "babel-plugin-debug-source",
   "devDependencies": {
-    "@babel/cli": "7.10.5",
-    "@babel/core": "7.10.5",
+    "@babel/cli": "7.24.1",
+    "@babel/core": "7.24.3",
     "ava": "1.4.1",
     "debug": "4.1.1"
   },
